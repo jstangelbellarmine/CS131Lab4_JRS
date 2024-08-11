@@ -1,9 +1,19 @@
 //IO TestClass for bad file names
+
+
+//~~~~~~~~~~~~~~~~~~Programmer's Notes~~~~~~~~~~~~~~~~~~
+//In this class, you will find a FileProcessor method 
+//that will read from a file, but there's a catch. The
+//file name is misspelled, which happens often. The file
+//name should be "BadString.txt", not "BadSrting.txt".
+//When using the catch method in FileProcessor, it tells
+//the user that the file wasn't found. 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public class BadFileName{
   
   public static void main(String[] args){
     
-    FileProcessor fp = new FileProcessor("BadString.txt",10);
+    FileProcessor fp = new FileProcessor("badSrting.txt",10);
 		fp.processFile();
   }//end main
   
