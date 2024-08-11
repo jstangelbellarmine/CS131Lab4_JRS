@@ -1,0 +1,23 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//In this class you have a constructor and a method that
+//work together to throws a message when an entered string
+//is too long. 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+public class StringTooLongException extends Exception {
+	
+	
+	
+	public StringTooLongException(String message) {
+		
+	}//end StringTooLongException constructor
+	
+	public static void checkString(String input, int maxLength) throws StringTooLongException {
+		
+		if (input.length() > maxLength) {
+			throw new StringTooLongException("String is too long!");
+		}//end if statement
+		
+	}//end checkString
+	
+}//end class
