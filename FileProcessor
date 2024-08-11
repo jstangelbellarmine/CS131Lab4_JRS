@@ -1,0 +1,106 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//In this class you have several variables that work together
+//to analyze a file with several String objects. The array is 
+//initialized within the constructor. The
+//There is a Try
+//Block that determines if the String is under a certain length.
+//If the String is over that length, it will give an exception.
+//There is also an exception for when the file itself cannot be found. 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+import java.util.*;
+import java.io.*;
+
+public class FileProcessor {
+
+	private String fileName;
+	private int stringLength;
+	private ArrayList<String> stringList;//I used the class starter code but kept coming up with errots for "private stringList ArrayList<String>;" so I swapped stringList with ArrayList<String>
+	private Scanner input;
+	
+
+	public FileProcessor(String fileName, int stringLength) {
+				this.fileName = fileName;
+				setStringLength(stringLength);
+				this.stringList = new ArrayList<>();
+	}//end constructor that initializes variables and creates array into which different Strings can be passed
+	
+	
+	public String getFileName() {
+		return fileName;
+		
+	}//end getFileName
+	
+	public int getStringLength() {
+		return stringLength;
+	}//end basic getStringLength
+	
+
+	private void setStringLength(int stringLength) {
+		if (stringLength < 5)
+		{
+			this.stringLength = 5;
+		}
+		else
+		{
+			this.stringLength = stringLength;
+		}
+	}//end getStringLength with minimum set to 5. If String is above 5, nothing changes 
+	
+		public int getArrayListSize() {
+			return stringList.size();
+		}//end getArrayListSize
+
+		public void getStringLength(int stringLength) {
+			this.stringLength = stringLength;
+		}//end setStringLength
+
+		public void setFileName(String fileName) {
+			this.fileName = fileName;
+		}//end setFileName
+		
+		public void processFile() {
+			StringTooLongException tooLong = new StringTooLongException("String is too long!");
+/*		
+			try 
+			{
+				input = new Scanner(new File(fileName));
+				while (input.hasNextLine()) 
+					{
+						String line = input.nextLine();
+					}
+					StringTooLongException.checkString(line,  stringLength);
+					stringList.add(line);
+					}
+					catch (StringTooLongException e) 
+					{
+					System.out.println(e.getMessage());	
+					}
+					}
+					}
+			catch (FileNotFoundException e) {
+				System.out.println("File not found: " + fileName);
+		}//end processFile
+	*/
+			try {
+			    input = new Scanner(new File(fileName));
+			    while (input.hasNextLine())
+			    {
+			        String line = input.nextLine();
+			        try {
+			            StringTooLongException.checkString(line, stringLength);
+			            stringList.add(line);
+			        }//end try  
+			        catch (StringTooLongException e) 
+			        {
+			            System.out.println(e.getMessage());
+			        }//end catch
+			    }//end while
+			}//end try block
+			catch (FileNotFoundException e) {
+			    // Handle the FileNotFoundException and print its message
+			    System.out.println("File not found: " + fileName);
+			}//end catch
+}//end class
+}
