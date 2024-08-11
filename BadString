@@ -1,3 +1,10 @@
+//~~~~~~~~~~~~~~~~~~Programmer's Notes~~~~~~~~~~~~~~~~~~
+//In this class, you will find a FileProcessor method 
+//that will read from a file called "BadString.txt". 
+//It also sets the stringLength, a variable found in 
+//the FileProccessor constructor in the FileProcessor 
+//class, to 10 characters.
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public class BadString{
   
   public static void main(String[] args){
